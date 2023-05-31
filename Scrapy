@@ -4,37 +4,40 @@
 Imports scrapy
 from scrapy import LinkExtractors, Rules
 from scrapy.crawler import CrawlerProcess 
-Import {re, requests}
+from scrapy.crawler.shell import requests
+Import re 
 
 #2: Construct classes 
      # create objects, 
         # specify rules and customize settings
 
-Class Scrape_websites(scrapy.crawl)--> str: 
+Class Scrape_websites(scrapy.spider)--> str: 
      Name = []
      Allowed Domain = ['yahoo.com']
      urls = ['url'] ## This is where you specify the url you'd like to scrape
-     User_agent = ['mozilla-firefox','chrome','IE']
+     Headers = {'User-agent':['mozilla-firefox','chrome','IE']}
       
      Rules = rules(linkedExtractor(allow=none, callback= parse_info))
      Custom_Settings = {'Cookies_enabled':'boolean',
                         'Cookies_debug':'boolean',
-                        'Uri_format':['xml', 'html', 'json', 'csv', 'yaml', 'parquet']
-                        'Allowed_format': ['xml','json','csv','yaml','parquet','html']}
+                        'Uri_feed':['xml.artile']
+                        'URi_format': ['xml','json','csv','yaml','parquet','html']}
     
      
      yield {
-     ## 
+     cookies = requests.get('headers').split(':').decode('utf-8)
+     get_urls = requests.url
      }
      
 #3: Construct functions
     # Wrap inside a Try & and Error to help with debugging 
 
-Def Scrape_links(self, response) --> str:
+Def Scrape_links(self, response, links, images) --> str, list[int]:
     While true:
     Try:
-        links = response.css('ahref::attr('src')')
-        drop_down = 
+        links = response.css('a.htmltags)tags::attr('href')')
+        images = response.css('a.htmltags)tags::attr('src')')
+        return list(set links & set images) 
     Error as er: pass
         
 Def scrape_page(self, response: list[str,int])--> str:
@@ -48,5 +51,6 @@ Def scrape_page(self, response: list[str,int])--> str:
 
 #4 Concludes with crawlerprocess crawl classes & functions:
    if __name__ = "__main__"
-   process = crawl_process(scrape_websites, scrape_page, scrape_links)
+   process = crawl_process()
+   crawl = process.crawl(scrape_websites, scrape_links)
    process.start()
