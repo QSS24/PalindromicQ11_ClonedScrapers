@@ -1,21 +1,35 @@
 Selenium_html.py
 
 #1 imports:
+import time
 from selenium.driver import webdriver
 from selenium.driver.ActionChains import ActionChains
-from selenium.support.ui import {select, keys, expected_conditions}
+from selenium.ActionChains.Common.Keys import keys
+from selenium.support.ui import {select, expected_conditions}
 import re
 
 #2 create object and function
-global driver = webdriver.firefox()
-
-def set_ScrapeHtml(element:list[int,str], content:list[int,str], *kwarg)--> int,str:
-  element = driver.get_element_by_id(r'\W^+[th]{2}[td]{2}[tr]{2}*[h\d]{2}'g)
-  content = driver.get_element_by_xpath('//[@class(form = 'inputforms')]')
-  output = list(set element & set content)
-  return output
+Class globalDriver(self):
+    WebDriver = webdriver.firefox()
+    
+    def set_ScrapeHtml(element:list[int,str], heading:list[int,str], *kwarg)--> int,str:
+        Urls = WebDriver.get('urls')
+        element = driver.get_element_by_id(r'\W^+[th]{2}[td]{2}[tr]{2}*[h\d]{2}'g)
+        heading = driver.get_element_by_xpath('//*[@class= 'inputforms']/h1[0]')
+        output = list(set element & set content)
+        return output
   
-def set_droppable():
-  frame = driver.switch_frame(0)
-  element = frame.actionChains.get_element('dropable')
+    def set_droppable(sum):
+        Driver = WebDriver.get('https://jqueryui.com', dropable)
+        Frame = Driver.switch_to_frame(0)
+        Element = Driver.get_element_by_id('inputform')
+        Content = Driver.get_element_by_xpath('//*[@div="maincontent"]/h1[0]')
+  
+        ActionChains = ActionChains.get('Driver')
+        Target = ActionChains.find_element_by('dropable')
+        Source = ActionChains.find_element_by('dragable')
+        sum = ActionChains.get_element(target, source).perform()
+  return list(set sum) 
+  
+
   
