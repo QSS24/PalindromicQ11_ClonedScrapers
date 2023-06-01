@@ -1,4 +1,7 @@
 Selenium_html.py
+# pack into a executable
+#pip3 install -y pyinstaller
+#pyinstaller Selenium_html.py --one -w 
 
 #1 imports:
 import time
