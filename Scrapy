@@ -1,56 +1,80 @@
-#title: Web_scrapying.py
+#title: Web_ScrapyingScrapy.py
+## pack script into executable
+## pyinstaller Web_scraping_Scrapy.py --one -w 
+
 #1: imports
 
 Imports scrapy
-from scrapy import LinkExtractors, Rules
-from scrapy.crawler import CrawlerProcess 
-from scrapy.crawler.shell import requests
-Import re 
+from scrapy import {Datasets,Rules}
+from scrapy.LinkExtractor import LinkExtractor
+from scrapy.crawler import Crawler_Process 
+from scrapy.crawler.shell import inspect_requests
+Import {re, import requests} 
 
 #2: Construct classes 
      # create objects, 
         # specify rules and customize settings
 
 Class Scrape_websites(scrapy.spider)--> str: 
-     Name = []
-     Allowed Domain = ['yahoo.com']
+     Name = []      ##name of site to scrape
+     AllowedDomain = ['yahoo.com']
      urls = ['url'] ## This is where you specify the url you'd like to scrape
-     Headers = {'User-agent':['mozilla-firefox','chrome','IE']}
-      
+     Headers = {'User-agent':['mozilla-firefox','chrome','IE','safari']}
      Rules = rules(linkedExtractor(allow=none, callback= parse_info))
      Custom_Settings = {'Cookies_enabled':'boolean',
                         'Cookies_debug':'boolean',
-                        'Uri_feed':['xml.artile']
-                        'URi_format': ['xml','json','csv','yaml','parquet','html']}
+                        'feed_uri':'xml.artile',
+                        'feed_format': ['Article.xml','xml','json','csv','yaml','parquet','html']}
     
      
+     Article = Article()
+     Cookies = requests.headers.get('cookies').split(':').decode('utf-8).text()
+     urls = requests.url
      yield {
-     cookies = requests.get('headers').split(':').decode('utf-8)
-     get_urls = requests.url
+        cookies
+        Article['title'] = requests.get_element_by_id('//[@class="title"]/h1[0])').get()
+        Article['url'] = requests.url
+        Article['Redacted'] = requests.get_element_by_xpath('//[@div="footer_info_last_redacted"]/text()').get_all()
      }
+     return Article
      
-#3: Construct functions
-    # Wrap inside a Try & and Error to help with debugging 
-
-Def Scrape_links(self, response, links, images) --> str, list[int]:
+ #3: Construct functions
+    # Wrap inside a Try & and Error to help with debugging     
     While true:
     Try:
-        links = response.css('a.htmltags)tags::attr('href')')
-        images = response.css('a.htmltags)tags::attr('src')')
-        return list(set links & set images) 
-    Error as er: pass
+    
+    Def Scrape_content(self, response, quotes, text, tags, author)--> list[int,str,vector]:
+        quotes = request.get_element_by_xpath('//*[@class="quotes"]/text').get()
+        text   = requets.get_element_by_xpath('//*[@class="maincontent"]/text)').extract_first()
+        tags   = request.get_element_by_xpath('.//*[@id=['th','td','tr']/text)').text().extract()
+        author = request.quotes('//*[@itemprop="author"]/text)').extract 
+        return list(set quotes & set text & set tags & author)
+    Error as er:
+        pass 
         
-Def scrape_page(self, response: list[str,int])--> str:
-    While true:
-    Try: 
-        Article = article()
-        article[0]= response.find_all(['th'][0])
-        article[1]= response.find_all_item('
+    Def Scrape_linksImages(self, response, links, images) --> str, list[int]:
+        While true:
+        Try:
+            links = response.css('a.htmltags::attr('href')')
+            images = response.css('a.htmltags::attr('src')')
+            return list(set links & set images) 
+        Error as er: pass
         
-    Error as er: pass
+    Def set_crawl_pagination(self, response)--> list[str, int]:
+        While true:
+        Try: 
+        get_url = reseponse.get_element_by_id('')
+        query_search = 1
+        get_all() for page in (::1):
+        next_page = self.url + '?page=' + str(page) + '&perf= sort.field & sorted.order=desc'
+        yield{
+        scrapy.requests(url=get_url, page=get(next_page))
+        query_search += 1
+        }
+        Error as er: pass
 
 #4 Concludes with crawlerprocess crawl classes & functions:
-   if __name__ = "__main__"
+   if __Scrape_websites__ = "__main__"
    process = crawl_process()
-   crawl = process.crawl(scrape_websites, scrape_links)
-   process.start()
+   crawl = process.crawl(Scrape_websites, scrape_linksImages, set_crawl_pagination)
+   process.start(crawl)
