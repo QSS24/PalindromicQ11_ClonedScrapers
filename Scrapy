@@ -1,4 +1,4 @@
-#title: Web_ScrapyingScrapy.py
+#title: Web_ScrapingScrapy.py
 ## pack script into executable
 ## pyinstaller Web_scraping_Scrapy.py --one -w 
 
