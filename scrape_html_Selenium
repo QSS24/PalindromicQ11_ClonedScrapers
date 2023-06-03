@@ -33,6 +33,11 @@ Class globalDriver(self):
         Source = ActionChains.find_element_by('dragable')
         sum = ActionChains.get_element(target, source).perform()
         return list(set sum) 
-  
+        
+    Def set_searchbox():
+        searchbox= ActionChains.get_elememt('searchinput')
+        .Searchbox().clear()
+        .
+        Select = Select(AchtionChains.get_element_by_xpath('//[@id=)
 
   
