@@ -32,7 +32,7 @@ Class Scrape_websites(scrapy.spider)--> str:
      Cookies = requests.headers.get('cookies').split(':').decode('utf-8).text()
      urls = requests.url
      yield {
-        cookies
+        Cookies
         Article['title'] = requests.get_element_by_id('//[@class="title"]/h1[0])').get()
         Article['url'] = requests.url
         Article['Redacted'] = requests.get_element_by_xpath('//[@div="footer_info_last_redacted"]/text()').get_all()
@@ -46,9 +46,9 @@ Class Scrape_websites(scrapy.spider)--> str:
     
     Def Scrape_content(self, response, quotes, text, tags, author)--> list[int,str,vector]:
         quotes = request.get_element_by_xpath('//*[@class="quotes"]/text').get()
-        text   = requets.get_element_by_xpath('//*[@class="maincontent"]/text)').extract_first()
+        text   = requets.get_element_by_xpath('//*li[@class="maincontent"]/text)').extract_first()
         tags   = request.get_element_by_xpath('.//*[@id=['th','td','tr']/text)').text().extract()
-        author = request.quotes('//*[@itemprop="author"]/text)').extract 
+        author = request.quotes('//*[@itemprop="author"]/text)').extract()
         return list(set quotes & set text & set tags & author)
     Error as er:
         pass 
@@ -70,9 +70,9 @@ Class Scrape_websites(scrapy.spider)--> str:
         get_url = reseponse.get_element_by_id('')
         query_search = 1
         get_all() for page in (::1):
-        next_page = self.url + '?page=' + str(page) + '&perf= sort.field & sorted.order=desc'
+        next_page = self.url + '?page=' + str(page) + ' &perf= sort.field=query & sorted.order=desc '
         yield{
-        scrapy.requests(url=nextpage, callback=parse_info)
+        scrapy.requests(url=nextpage, callback=parse_crawler)
         query_search += 1
         }
         Error as er: pass
