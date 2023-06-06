@@ -24,21 +24,22 @@ Class globalDriver(self):
   
     def set_droppable(sum):
         Driver = WebDriver.get('https://jqueryui.com'/droppable)
-        Frame = Driver.switch_to_frame(0)
+        Frame = Driver.switch_to.frame(0)
         Element = Driver.get_element_by_id('inputform')
         Content = Driver.get_element_by_xpath('//*[@div="maincontent"]/h1[0]')
   
         ActionChains = ActionChains.get('Driver')
-        Target = ActionChains.find_element_by('draggable')
-        Source = ActionChains.find_element_by('droppable')
-        sum = ActionChains.drag_and_drop(target, source).perform()
+        Target = Action.Chains.find_element_by('draggable')
+        Source = Action.Chains.find_element_by('droppable')
+        sum = Action.Chains.drag_and_drop(target, source).perform()
         return list(set sum) 
         
     Def set_searchbox():
-        searchbox= ActionChains.get_elememt('searchinput')
+        Driver = WebDriver.get('url)
+        searchbox= Driver.ActionChains.get_elememt('searchinput')
         .Searchbox().clear()
         .Searchbox(return.keys)
-        Select = Select(AchtionChains.get_element_by_xpath('//*[@id="inputforms"]/text)').text().get_all()
+        Select = Select(Action.Chains.get_element_by_xpath('//*[@id="inputforms"]/text)').text().get_all()
         
 
   
