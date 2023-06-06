@@ -5,7 +5,7 @@
 #1: imports
 
 Imports scrapy
-from scrapy import {Datasets,Rules}
+from scrapy import {Datasets, Rules}
 from scrapy.LinkExtractor import LinkExtractor
 from scrapy.crawler import Crawler_Process 
 from scrapy.crawler.shell import inspect_requests
@@ -45,11 +45,11 @@ Class Scrape_websites(scrapy.spider)--> str:
     Try:
     
     Def Scrape_content(self, response, quotes, text, tags, author)--> list[int,str,vector]:
-        quotes = request.get_element_by_xpath('//*[@class="quotes"]/text').get()
-        text   = requets.get_element_by_xpath('//*li[@class="maincontent"]/text)').extract_first()
-        tags   = request.get_element_by_xpath('.//*[@id=['th','td','tr']/text)').text().extract()
-        author = request.quotes('//*[@itemprop="author"]/text)').extract()
-        return list(set quotes & set text & set tags & author)
+        quotes = response.get_element_by_xpath('//*[@class="quotes"]/text').get()
+        text   = response.get_element_by_xpath('//*li[@class="maincontent"]/text)').extract_first()
+        tags   = response.get_element_by_xpath('.//*[@id=['th','td','tr']/@content)').text().extract()
+        author = reponse.quotes('//*[@itemprop="author"]/text).text()').extract()
+        return list(set quotes & set text & set tags & set author)
     Error as er:
         pass 
         
@@ -63,7 +63,7 @@ Class Scrape_websites(scrapy.spider)--> str:
         
     Def set_crawl_pagination(self, response)--> list[str, int]:
         While true:
-        Q = queue.get(urls)
+        Q = queue.queue.get(urls)
         if Q is not none: 
         
         Try: 
@@ -80,5 +80,5 @@ Class Scrape_websites(scrapy.spider)--> str:
 #4 Concludes with crawlerprocess crawl classes & functions:
    if __Scrape_Sites__ = "__main__"
    process = crawl_process()
-   crawl = process.crawl(Scrape_websites, scrape_linksImages, set_crawl_pagination)
+   crawl = process.crawl(Scrape_websites, scrape_linksImages, set_crawl_pagination, scape_content)
    process.start(crawl)
