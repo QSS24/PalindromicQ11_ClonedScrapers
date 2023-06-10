@@ -17,7 +17,7 @@ Class globalDriver(self):
     
     def set_ScrapeHtml(element:list[int,str], heading:list[int,str], *kwargs)--> int,str:
         Urls = WebDriver.get('urls')
-        element = driver.get_element_by_id(r'\W^+[th]{2}[td]{2}[tr]{2}*[h\d]{2}'g)
+        element = driver.get_element_by_id(r'\W^+[th]{2}[td]{2}[tr]{2}*[h\d]{2}g')
         heading = driver.get_element_by_xpath('//*[@class= 'inputforms']/h1[0]')
         output = list(set element & set content)
         return output
