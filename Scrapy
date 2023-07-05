@@ -58,7 +58,7 @@ Class Scrape_websites(scrapy.spider)--> str:
         Try:
             links = response.css('a.htmltags::attr('href')')
             images = response.css('a.htmltags::attr('src')')
-            return list(set links & set images) 
+            return list(set links + set images) 
         Error as er: pass
         
     Def set_crawl_pagination(self, response)--> list[str, int]:
