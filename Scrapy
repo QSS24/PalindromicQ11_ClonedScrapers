@@ -49,7 +49,7 @@ Class Scrape_websites(scrapy.spider)--> str:
         text   = response.get_element_by_xpath('//*li[@class="maincontent"]/text)').extract_first()
         tags   = response.get_element_by_xpath('.//*[@id=['th','td','tr']/@content)').text().extract()
         author = reponse.quotes('//*[@itemprop="author"]/text).text()').extract()
-        return list(set quotes & set text & set tags & set author)
+        return list(set quotes + set text + set tags + set author)
     Error as er:
         pass 
         
