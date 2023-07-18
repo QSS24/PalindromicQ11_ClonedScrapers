@@ -10,14 +10,14 @@ from scrapy.LinkExtractor import LinkExtractor
 from scrapy.crawler import Crawler_Process 
 from scrapy.crawler.shell import inspect_requests
 Import {re, import requests, queue} 
-
+from collection import defaultdict
 
 #2: Construct classes 
      # create objects, 
         # specify rules and customize settings
 
 Class Scrape_websites(scrapy.spider)--> str: 
-     Name = []      ##name of site to scrape
+     Name = int(str("select sites to be scraped: ").format([defaultdict])      ##name of site to scrape
      AllowedDomain = ['yahoo.com']
      urls = ['url'] ## This is where you specify the url you'd like to scrape
      Headers = {'User-agent':['mozilla-firefox','chrome','IE','safari']}
@@ -30,10 +30,10 @@ Class Scrape_websites(scrapy.spider)--> str:
      
      Article = Article()
      Cookies = requests.headers.get('cookies').split(':').decode('utf-8).text()
-     urls = requests.url
+     url = requests.url()
      yield {
         Cookies
-        Article['title'] = requests.get_element_by_id('//[@class="title"]/h1[0])').get()
+        Article['title'] = requests.get_element_by_id('//[@class="title"]/h1[0])').get_all()
         Article['url'] = requests.url
         Article['Redacted'] = requests.get_element_by_xpath('//[@div="footer_info_last_redacted"]/text()').get_all()
      }
@@ -53,21 +53,21 @@ Class Scrape_websites(scrapy.spider)--> str:
     Error as er:
         pass 
         
-    Def Scrape_linksImages(self, response, links, images) --> str, list[int]:
+    Def Set_Scrape_linksImages(self, response, links, images) --> str, list[int]:
         While true:
         Try:
-            links = response.css('a.htmltags::attr('href')')
-            images = response.css('a.htmltags::attr('src')')
+            links = response.css('a.htmltags::attr('href')').format([defaultdict])
+            images = response.css('a.htmltags::attr('src')').format([defaultdict])
             return list(set links + set images) 
         Error as er: pass
         
     Def set_crawl_pagination(self, response)--> list[str, int]:
         While true:
-        Q = queue.queue.get(urls)
+        Q = queue.queue.get(url)
         if Q is not none: 
         
         Try: 
-        get_url = reseponse.get_element_by_id('')
+        get_url = reseponse.get_element_by_id('.')
         query_search = 1
         get_all() for page in (::1):
         next_page = self.url + '?page=' + str(page) + ' &perf= sort.field=query & sorted.order=desc '
@@ -80,5 +80,6 @@ Class Scrape_websites(scrapy.spider)--> str:
 #4 Concludes with crawlerprocess crawl classes & functions:
    if __Scrape_Sites__ = "__main__"
    process = crawl_process()
-   crawl = process.crawl(Scrape_websites, scrape_linksImages, set_crawl_pagination, scape_content)
+   crawl = process.crawl(Scrape_websites, scrape_linksImages, set_crawl_pagination, scape_content).format([defaultdict])
    process.start(crawl)
+  
