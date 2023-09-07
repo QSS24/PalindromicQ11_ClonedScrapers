@@ -9,15 +9,15 @@ from scrapy import {Datasets, Rules}
 from scrapy.LinkExtractor import LinkExtractor
 from scrapy.crawler import Crawler_Process 
 from scrapy.crawler.shell import inspect_requests
-Import {re, import requests, queue} 
-from collection import defaultdict
+Import {re, requests, queue} 
+from collection import Ordereddict
 
 #2: Construct classes 
      # create objects, 
         # specify rules and customize settings
 
-Class Scrape_websites(scrapy.spider)--> str: 
-     Name = int(str("select sites to be scraped: ").format([defaultdict])      ##name of site to scrape
+Class Scrape_websites(scrapy.spider:list[str,vector, links]): 
+     Name = int(str("select sites to be scraped: ").format({ordereddict})      ##name of site to scrape
      AllowedDomain = ['yahoo.com']
      urls = ['url'] ## This is where you specify the url you'd like to scrape
      Headers = {'User-agent':['mozilla-firefox','chrome','IE','safari']}
@@ -33,7 +33,7 @@ Class Scrape_websites(scrapy.spider)--> str:
      url = requests.url()
      yield {
         Cookies
-        Article['title'] = requests.get_element_by_id('//[@class="title"]/h1[0])').get_all()
+        Article['title'] = requests.get_element_by_id(('//[@class="title"]/h1[0])').get_all()
         Article['url'] = requests.url
         Article['Redacted'] = requests.get_element_by_xpath('//[@div="footer_info_last_redacted"]/text()').get_all()
      }
@@ -44,42 +44,46 @@ Class Scrape_websites(scrapy.spider)--> str:
     While true:
     Try:
     
-    Def Scrape_content(self, response, quotes, text, tags, author)--> list[int,str,vector]:
-        quotes = response.get_element_by_xpath('//*[@class="quotes"]/text').get()
-        text   = response.get_element_by_xpath('//*li[@class="maincontent"]/text)').extract_first()
-        tags   = response.get_element_by_xpath('.//*[@id=['th','td','tr']/@content)').text().extract()
-        author = reponse.quotes('//*[@itemprop="author"]/text).text()').extract()
-        return list(set quotes + set text + set tags + set author)
-    Error as er:
-        pass 
+          Def Scrape_content(self, response, quotes, text, tags, author)--> list[int,str,vector]:
+             quotes = request.get_element_by_xpath('//*[@class="quotes"]/text').get()
+             text   = request.get_element_by_xpath('(//*li[@class="maincontent"]/text)').extract_first()
+             tags   = request.get_element_by_xpath('(.//*[@id=['th','td','tr']]/@content)').text().extract()
+             author = request.quotes('//*[@itemprop="author"]/text).text()').extract_all()
+             return list(set quotes + set text + set tags + set author)
+     
+     Except TypeError as er:
+          pass 
         
     Def Set_Scrape_linksImages(self, response, links, images) --> str, list[int]:
         While true:
         Try:
-            links = response.css('a.htmltags::attr('href')').format([defaultdict])
-            images = response.css('a.htmltags::attr('src')').format([defaultdict])
+            links = requests.css('a.htmltags::attr('href')').format([OrderedDic])
+            images = requests.css('a.htmltags::attr('src')').format([OrderedDict])
             return list(set links + set images) 
-        Error as er: pass
+        Except Exception as er: 
+            pass
         
     Def set_crawl_pagination(self, response)--> list[str, int]:
         While true:
-        Q = queue.queue.get(url)
-        if Q is not none: 
+             Q = queue.queue(url)
+             if Q is not none: 
         
-        Try: 
-        get_url = reseponse.get_element_by_id('.')
-        query_search = 1
-        get_all() for page in (::1):
-        next_page = self.url + '?page=' + str(page) + ' &perf= sort.field=query & sorted.order=desc '
-        yield{
-        scrapy.requests(url=nextpage, callback=parse_crawler)
-        query_search += 1
-        }
-        Error as er: pass
+             Try: 
+                  get_url = reseponse.get_element_by_id('.')
+                  query_search = 1
+                  getitem_all() for page in (::1):
+                  next_page = self.url + '?page=' + str(page) + '&perf= sort.field=query & sorted.order=desc'
+                  yield{
+                  scrapy.requests(url=next_page, callback=parse_crawler)
+                  query_search += 1
+                  yield query_search
+                  }
+             Except Exception as er: 
+                  pass
 
 #4 Concludes with crawlerprocess crawl classes & functions:
    if __Scrape_Sites__ = "__main__"
    process = crawl_process()
-   crawl = process.crawl(Scrape_websites, scrape_linksImages, set_crawl_pagination, scape_content).format([defaultdict])
+   crawl = process.crawl(Scrape_websites, scrape_linksImages, set_crawl_pagination, scape_content).format([Ordereddict])
    process.start(crawl)
   
