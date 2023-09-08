@@ -9,7 +9,9 @@ from selenium.driver import webdriver
 from selenium.driver.ActionChains import {ActionChains, WebDriverWait} 
 from selenium.ActionChains.Common.Keys import keys
 from selenium.support.ui import {select, expected_conditions}
-import re
+import {re, OrderedDict}
+Global:
+urls = input(str('please select sites to be scraped:' ))
 
 #2 create object and function
 Class globalDriver(self):
@@ -19,10 +21,10 @@ Class globalDriver(self):
         Urls = WebDriver.get('urls')
         element = driver.get_element_by_id(r'\W^+[th]{2}[td]{2}[tr]{2}*[h\d]{2}g')
         heading = driver.get_element_by_xpath('//*[@class= 'inputforms']/h1[0]')
-        output = list(set element & set content)
+        output = list(set element & set content).format([OrderedDict])
         return output
   
-    def set_droppable(sum):
+    def set_droppable(sum, **kwargs):
         Driver = WebDriver.get('https://jqueryui.com'/droppable)
         Frame = Driver.switch_to.frame(0)
         Element = Driver.get_element_by_id('inputform')
@@ -34,12 +36,19 @@ Class globalDriver(self):
         sum = Action.Chains.drag_and_drop(target, source).perform()
         return list(set sum) 
         
-    Def set_searchbox():
+    Def set_searchbox(response, **kwargs):
         Driver = WebDriver.get('url)
         searchbox= Driver.ActionChains.get_elememt('searchinput')
         .Searchbox().clear()
         .Searchbox(return.keys)
-        Select = Select(Action.Chains.get_element_by_xpath('//*[@id="inputforms"]/text)').text().get_all()
+        select = Select(Action.Chains.get_element_by_xpath('//*[@id="inputforms"]/text)').text().get_all()
+
+if __name__ == '__Main__'
+    Sel = GlobalDriver()
+    Search = Set+searchbox(select)
+    Set_droppable = set_droppabled() 
+    Set_ScrapeHtml = set_ScrapeHtml()
+    return list(set Sel + set ScrapeHtml + set Search + set Set_droppable).format([OrderedDict])
         
 
   
