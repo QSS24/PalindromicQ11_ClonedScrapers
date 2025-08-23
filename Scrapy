@@ -1,8 +1,5 @@
-#title: Web_ScrapingScrapy.py
-## pack script into executable
-## pyinstaller Web_scraping_Scrapy.py --one -w 
-
-#1: imports
+Web_ScrapingScrapy.py
+pyinstaller Web_scraping_Scrapy.py --one -w 
 
 Imports scrapy
 from scrapy import {Datasets, Rules}
@@ -12,14 +9,16 @@ from scrapy.crawler.shell import inspect_requests
 Import {re, requests, queue} 
 from collection import Ordereddict
 
-#2: Construct classes 
-     # create objects, 
-        # specify rules and customize settings
-
 Class Scrape_websites(scrapy.spider:list[str,vector, links]): 
-     Name = int(str("select sites to be scraped: ").format({ordereddict})      ##name of site to scrape
-     AllowedDomain = ['yahoo.com']
-     urls = ['url'] ## This is where you specify the url you'd like to scrape
+     Declare Global: {
+         DoNotAllow = re.('*'g)
+     Name_url := input(("select sites to be scraped: ", <str> if input == none: \n
+        Throw: 
+          Error as e: 
+          Echo: "there has to be an input:"
+     Elif continue: \n
+     )     
+     urls = ['Name_url'] 
      Headers = {'User-agent':['mozilla-firefox','chrome','IE','safari']}
      Rules = rules(linkedExtractor(allow=none, callback= parse_info))
      Custom_Settings = {'Cookies_enabled':'boolean',
@@ -27,20 +26,18 @@ Class Scrape_websites(scrapy.spider:list[str,vector, links]):
                         'feed_uri':'xml.artile',
                         'feed_format': ['Article.xml','xml','json','csv','yaml','parquet','html']}
     
-     
-     Article = Article()
+     Articles = Article()
      Cookies = requests.headers.get('cookies').split(':').decode('utf-8).text()
-     url = requests.url()
+        Return Extracted_Cookies = Cookies.format{OrderedDict}
+     url = requests.urls()
      yield {
         Cookies
         Article['title'] = requests.get_element_by_id(('//[@class="title"]/h1[0])').get_all()
-        Article['url'] = requests.url
+        Article['url'] = requests.url()
         Article['Redacted'] = requests.get_element_by_xpath('//[@div="footer_info_last_redacted"]/text()').get_all()
      }
      return Article
-     
- #3: Construct functions
-    # Wrap inside a Try & and Error to help with debugging     
+         
     While true:
     Try:
     
@@ -74,16 +71,19 @@ Class Scrape_websites(scrapy.spider:list[str,vector, links]):
                   getitem_all() for page in (::1):
                   next_page = self.url + '?page=' + str(page) + '&perf= sort.field=query & sorted.order=desc'
                   yield{
-                  scrapy.requests(url=next_page, callback=parse_crawler)
-                  query_search += 1
-                  yield query_search
+                    scrapy.requests(url=next_page, callback=parse_crawler)
+                    query_search += 1
+                    yield query_search
                   }
              Except Exception as er: 
                   pass
 
-#4 Concludes with crawlerprocess crawl classes & functions:
    if __Scrape_Sites__ = "__main__"
    process = crawl_process()
-   crawl = process.crawl(Scrape_websites, scrape_linksImages, set_crawl_pagination, scape_content).format([Ordereddict])
+   crawl = process.crawl(Scrape_websites).format([Ordereddict])
    process.start(crawl)
   
+
+
+
+
