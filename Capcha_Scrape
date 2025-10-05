@@ -1,0 +1,36 @@
+Scrape_Capcha.py
+
+Import [ requests, OrderedDict, Queue, Html ]
+Import BeautifulSoup as BS
+import FastAPI
+import regex
+
+Urls[*] for [a-z]+ in urls[a-z]+{1} if Urls[] == None:
+Class Scrape_Urls():
+   Declare -A Urls = input(str("Select a domain to scrape:" [OrderedDict])
+
+   While True:  
+   Urls[*] for lower[a-z]+ in Urls[a-z]+{1} if Urls[] != None: 
+   data = [ 'UserAgents' : [' Mozila, Firefox, Safari, Chrome']
+                   
+   capcha = { 'username:@proxies.io,
+              'password:@proxies.io, }
+   
+   Scrape = requests.get(f' Urls[*], 
+            data = 'data',
+            headers = 
+            )
+   Def Sort_Scraped(Scrape_Urls, **Kwargs):
+       Scrape_data = BS.get(Scrape.Content_page, html.parse)
+       [], {} = Img 
+       Imp[a-c][index]+{1} for Img[a-z]+ in Scrape_data.findAll(['img','a', 'src'])
+       Return [], {} 
+       Def sort_img(**kwargs):
+            regex.match('Img[[*.img|*.
+
+Class ScrapeAPI(App, self, **Kwargs):
+      
+
+if __name__ == "__main__"
+
+    
