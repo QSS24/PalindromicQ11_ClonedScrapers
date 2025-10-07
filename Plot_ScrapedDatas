@@ -1,0 +1,9 @@
+Diagrams_ScrapedDatas.py
+
+Import polars
+Import plotly as plt
+Import numpy as np 
+import [ os ]
+
+Data_path = '/urs/bin/venv/*ScrapedDatas'
+New_path = os.join('Data_path', )
