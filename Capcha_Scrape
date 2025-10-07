@@ -5,9 +5,10 @@ Import BeautifulSoup as BS
 import FastAPI
 import regex
 
+path = '/usr/bin/venv/*Scraper'
 Urls[*] for [a-z]+ in urls[a-z]+{1} if Urls[] == None:
 Class Scrape_Urls():
-   Declare -A Urls = input(str("Select a domain to scrape:" [OrderedDict])
+   Declare -A Urls := input(str("Select a domain to scrape:" [OrderedDict])
 
    While True:  
    Urls[*] for lower[a-z]+ in Urls[a-z]+{1} if Urls[] != None: 
@@ -17,20 +18,26 @@ Class Scrape_Urls():
               'password:@proxies.io, }
    
    Scrape = requests.get(f' Urls[*], 
-            data = 'data',
-            headers = 
+            headers = 'data',
+            payload = jason
             )
    Def Sort_Scraped(Scrape_Urls, **Kwargs):
-       Scrape_data = BS.get(Scrape.Content_page, html.parse)
+       Scrape_data := BS.get(Scrape.Content_page, 'html.parse')
        [], {} = Img 
-       Imp[a-c][index]+{1} for Img[a-z]+ in Scrape_data.findAll(['img','a', 'src'])
+       Img = Imp[a-c][index]+{1} for Img[a-z]+ in Scrape_data.findAll(['img','a', 'src'])
        Return [], {} 
        Def sort_img(**kwargs):
-            regex.match('Img[[*.img|*.
-
+            if Img != None: 
+            Img_Source[OrderedDict[img|png|jpg]] for [img, png, jpg] in Img.(regex.search('Img[[*.img|*.png|*.jpg][index]]'g))
+            yield Img_Source().cvs
+       
+          
 Class ScrapeAPI(App, self, **Kwargs):
-      
+         def __super()__init__(self):
+         Class RoleModels():
+              Route = ('/Scraper/,< pk = pg>) 
+              
 
 if __name__ == "__main__"
-
+ScrapeAPI().run() 
     
